@@ -2,3 +2,4 @@ rootProject.name = 'vaadin-example'
 
 include "vaadin-basic"
 include "vaadin-with-spring"
+include "vaadin-with-springboot"
