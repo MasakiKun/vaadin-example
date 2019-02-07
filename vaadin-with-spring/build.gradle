@@ -1,0 +1,31 @@
+plugins {
+	id("java")
+	id("war")
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+
+def versions = [
+	"servlet": "4.0.1",
+	"vaadin": [
+		"core": "12.0.5",
+		"spring": "10.1.1",
+	],
+	"spring": [
+		"core": "5.1.4.RELEASE"
+	]
+]
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly "javax.servlet:javax.servlet-api:${versions.servlet}"
+	compile "com.vaadin:vaadin:${versions.vaadin.core}"
+	compile "com.vaadin:vaadin-spring:${versions.vaadin.spring}"
+	compile "org.springframework:spring-web:${versions.spring.core}"
+}
